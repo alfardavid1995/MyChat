@@ -13,4 +13,24 @@ import java.util.ArrayList;
 public class Usuario extends Persona {
     ArrayList<Usuario> listaAmigos = new ArrayList<Usuario>();
     ArrayList<Chat> listaChat = new ArrayList<Chat>(); 
+
+    public Usuario() {
+    }
+
+    public ArrayList<Usuario> getListaAmigos() {
+        return listaAmigos;
+    }
+
+    public void setListaAmigos(ArrayList<Usuario> listaAmigos) {
+        this.listaAmigos = listaAmigos;
+    }
+
+    public ArrayList<Chat> getListaChat() {
+        return listaChat;
+    }
+
+    public void setListaChat(ArrayList<Chat> listaChat) {
+        this.listaChat = listaChat;
+    }
+    
 }
