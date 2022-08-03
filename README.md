@@ -1,2 +1,2 @@
 # MyChat
-chat appliocation
+chat application
