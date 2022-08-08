@@ -4,8 +4,8 @@
  */
 package mychat.Objects;
 
-import java.util.Date;
-import Conexion.Conexion;
+import java.sql.Date;
+
 
 /**
  *

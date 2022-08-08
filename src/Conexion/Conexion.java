@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class Conexion 
 {
     private static Conexion conexion;
-    private static final String DBurl="jdbc:mysql://localhost:3306/inventario?serverTimezone=UTC";
+    private static final String DBurl="jdbc:mysql://localhost:3306/mychat?serverTimezone=UTC";
     private static Connection connection=null;
     
     private Conexion()
@@ -29,7 +29,7 @@ public class Conexion
         try
         {
         Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-        connection= DriverManager.getConnection(DBurl,"cristian","prueba123");
+        connection= DriverManager.getConnection(DBurl,"root","cris12pro");
         } catch (ClassNotFoundException |SQLException|NoSuchMethodException|
                 SecurityException|InstantiationException|IllegalAccessException
                 |IllegalArgumentException|InvocationTargetException exception)
