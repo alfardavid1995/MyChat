@@ -40,7 +40,6 @@ public class EntrarAlPrograma extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         jButton2.setBackground(new java.awt.Color(255, 153, 0));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Registrar Nuevo Usuario");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +82,7 @@ public class EntrarAlPrograma extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(189, 380, Short.MAX_VALUE))
         );
 
         pack();
