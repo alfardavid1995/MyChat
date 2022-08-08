@@ -74,17 +74,14 @@ public class ChatGUI extends javax.swing.JPanel {
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 110, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 51, 0));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Ver amigos");
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 102, 0));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Agregar amigos");
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 200, 30));
 
         jButton4.setBackground(new java.awt.Color(0, 51, 0));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Ver chats");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +96,6 @@ public class ChatGUI extends javax.swing.JPanel {
         jLabelContadorNotificaciones.setText("       ");
         jPanel2.add(jLabelContadorNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 358, -1, -1));
 
-        jTextMensajeString.setBackground(new java.awt.Color(255, 255, 255));
         jTextMensajeString.setForeground(new java.awt.Color(255, 255, 255));
         jTextMensajeString.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +106,6 @@ public class ChatGUI extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -131,7 +126,6 @@ public class ChatGUI extends javax.swing.JPanel {
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 590, 380));
 
         jButton5.setBackground(new java.awt.Color(0, 51, 0));
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("Agregar Personas al chat");
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 200, 30));
 
@@ -139,7 +133,6 @@ public class ChatGUI extends javax.swing.JPanel {
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 580, -1, -1));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 0));
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("Crear chat");
         jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 30));
 
@@ -147,11 +140,14 @@ public class ChatGUI extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

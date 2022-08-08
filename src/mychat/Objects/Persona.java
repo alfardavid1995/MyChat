@@ -11,7 +11,7 @@ import java.util.Date;
  * @author css124646
  */
 abstract class Persona {
-    String cedula;
+   
     String nombrePersona;
     String apellido1;
     String apellido2;
@@ -58,13 +58,7 @@ abstract class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
+  
     
 
  public abstract void eliminarDatos();
