@@ -34,12 +34,12 @@ public class Usuario extends Persona {
     }
 
     @Override
-    public void eliminarUsuario() {
+    public void eliminarDatos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void crearUsuario() {
+    public void crearDatos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -49,8 +49,10 @@ public class Usuario extends Persona {
     }
 
     @Override
-    public void actualizarUsuario() {
+    public void actualizarDatos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+ 
     
 }

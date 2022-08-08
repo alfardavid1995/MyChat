@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author css124646
  */
 public class Chat {
+    private String Nombrechat;
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     ArrayList<Mensaje> listaMensajes = new ArrayList<Mensaje>();
     
