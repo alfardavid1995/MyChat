@@ -5,6 +5,7 @@
 package mychat.Objects;
 
 import java.util.Date;
+import Conexion.Conexion;
 
 /**
  *
