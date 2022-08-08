@@ -16,7 +16,10 @@ public class MyChat {
     public static void main(String[] args) {
         // TODO code application logic here
         Usuario usuario= new Usuario();
-        usuario.crearDatos();
+        //usuario.crearDatos();
+        //usuario.eliminarDatos();
+        usuario.modificarDatos();
+        
     }
     
 }

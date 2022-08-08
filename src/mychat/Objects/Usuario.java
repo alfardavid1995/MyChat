@@ -48,8 +48,26 @@ public class Usuario extends Persona {
 
     @Override
     public void eliminarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+       
+            try{
+            
+            PreparedStatement consulta= Conexion.getConexion().prepareStatement("Delete from usuarios where nombreusuarios=?");
+            consulta.setString(1, JOptionPane.showInputDialog("Digite el nombre"));
+            consulta.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Se ha eliminado usuario");
+            
+                
+            
+            
+        }catch (SQLException ex){
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        
+          
+        
+            
+        }
+    
 
     @Override
     public void crearDatos() {
@@ -81,7 +99,30 @@ public class Usuario extends Persona {
 
     @Override
     public void modificarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      try{
+            DateFormat dateFormat =  new SimpleDateFormat("yyyy-MM-dd");
+            this.nombrePersona=JOptionPane.showInputDialog("Digite el nombre");
+            this.apellido1=JOptionPane.showInputDialog("Digite el primer apellido");
+            this.apellido2=JOptionPane.showInputDialog("Digite el segundo apellido");
+            this.fechaNacimiento=Date.valueOf(JOptionPane.showInputDialog("Digite la fecha de nacimiento del estudiante"));
+            this.email=JOptionPane.showInputDialog("Digite el email");
+          
+            PreparedStatement ps=Conexion.getConexion().prepareStatement("update usuarios set nombreusuarios=?,"
+                    + "primerApellido=? ,SegundoApellido=? , Email=?,FechaNacimiento=? where idusuario=2" );
+            ps.setString(1, nombrePersona);
+            ps.setString(2, apellido1);
+            ps.setString(3, apellido2);
+            ps.setString(4, email);
+            ps.setDate(5, fechaNacimiento);
+          ;
+            ps.executeUpdate();
+            System.out.println("Guardado");
+                
+            }
+            catch (SQLException exception)
+            {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null, exception);
+        }   
     }
 
     @Override
