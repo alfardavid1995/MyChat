@@ -12,12 +12,13 @@ import java.sql.Date;
  * @author css124646
  */
 abstract class Persona {
-   
+    int id;
     String nombrePersona;
     String apellido1;
     String apellido2;
     String email;
     Date fechaNacimiento;
+    
 
     public String getNombrePersona() {
         return nombrePersona;
@@ -66,5 +67,5 @@ abstract class Persona {
  public abstract void crearDatos();
  public abstract void modificarDatos();
  public abstract void actualizarDatos();
- 
+ public abstract void mostrarDatos();
 }

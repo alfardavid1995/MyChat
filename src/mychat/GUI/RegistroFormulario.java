@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mychat.GUI;
-import mychat.Objects.Usuario;
+import mychat.Objects.Administrador;
+import mychat.Objects.Direcciónred;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 /**
@@ -11,7 +12,8 @@ import javax.swing.JOptionPane;
  * @author Christian
  */
 public class RegistroFormulario extends javax.swing.JFrame {
-    Usuario usuario = new Usuario();
+    Administrador  admin = new Administrador();
+    boolean validacion;
     /**
      * Creates new form RegistroFormulario
      */
@@ -37,14 +39,14 @@ public class RegistroFormulario extends javax.swing.JFrame {
         comboBoxDia = new javax.swing.JComboBox<>();
         comboBoxMes = new javax.swing.JComboBox<>();
         comboBoxAño = new javax.swing.JComboBox<>();
-        jCheckBoxIack = new javax.swing.JCheckBox();
+        checkBoxAcuerdo = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtNombre = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtPrimerApellido = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txtEmaiil = new javax.swing.JTextPane();
+        txtEmail = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -52,8 +54,13 @@ public class RegistroFormulario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        ComboTipoRoles = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDirrecionIp = new javax.swing.JTextPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(5, 225, 19));
 
         jPanel1.setBackground(new java.awt.Color(5, 225, 193));
@@ -109,11 +116,11 @@ public class RegistroFormulario extends javax.swing.JFrame {
             }
         });
 
-        jCheckBoxIack.setForeground(new java.awt.Color(51, 51, 255));
-        jCheckBoxIack.setText("Estoy de acuerdo con los terminos de uso");
-        jCheckBoxIack.addActionListener(new java.awt.event.ActionListener() {
+        checkBoxAcuerdo.setForeground(new java.awt.Color(51, 51, 255));
+        checkBoxAcuerdo.setText("Estoy de acuerdo con los terminos de uso");
+        checkBoxAcuerdo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxIackActionPerformed(evt);
+                checkBoxAcuerdoActionPerformed(evt);
             }
         });
 
@@ -131,10 +138,10 @@ public class RegistroFormulario extends javax.swing.JFrame {
         txtPrimerApellido.setToolTipText("");
         jScrollPane2.setViewportView(txtPrimerApellido);
 
-        txtEmaiil.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtEmaiil.setForeground(new java.awt.Color(153, 204, 255));
-        txtEmaiil.setToolTipText("");
-        jScrollPane4.setViewportView(txtEmaiil);
+        txtEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtEmail.setForeground(new java.awt.Color(153, 204, 255));
+        txtEmail.setToolTipText("");
+        jScrollPane4.setViewportView(txtEmail);
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
@@ -154,6 +161,21 @@ public class RegistroFormulario extends javax.swing.JFrame {
 
         jLabel9.setText("Dia");
 
+        ComboTipoRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Normal" }));
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Tipo rol");
+
+        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("Dirrecion ip");
+
+        txtDirrecionIp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtDirrecionIp.setForeground(new java.awt.Color(153, 204, 255));
+        txtDirrecionIp.setToolTipText("");
+        jScrollPane3.setViewportView(txtDirrecionIp);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -162,27 +184,13 @@ public class RegistroFormulario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(100, 100, 100)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2)
-                                        .addComponent(jScrollPane4)
-                                        .addComponent(jScrollPane5)))
-                                .addComponent(jCheckBoxIack))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(177, 177, 177)
+                                .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(checkBoxAcuerdo)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
@@ -190,19 +198,41 @@ public class RegistroFormulario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2)
+                                    .addComponent(jScrollPane4)
+                                    .addComponent(jScrollPane5))
+                                .addGap(66, 66, 66)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComboTipoRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(195, 195, 195)
-                        .addComponent(jLabel1)))
-                .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel7)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel9)
-                .addGap(153, 153, 153))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jLabel9)
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel7)
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel8)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,27 +243,30 @@ public class RegistroFormulario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboTipoRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,19 +274,23 @@ public class RegistroFormulario extends javax.swing.JFrame {
                     .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(44, 44, 44)
-                .addComponent(jCheckBoxIack)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(checkBoxAcuerdo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,15 +312,37 @@ public class RegistroFormulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxAñoActionPerformed
 
-    private void jCheckBoxIackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxIackActionPerformed
+    private void checkBoxAcuerdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxAcuerdoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxIackActionPerformed
+    }//GEN-LAST:event_checkBoxAcuerdoActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-        usuario.setNombrePersona(txtNombre.getText());
-        usuario.setApellido1(txtPrimerApellido.getText());
-        usuario.setApellido2(txtSegundoApellido.getText());
-        usuario.setEmail(txtEmaiil.getText());
+    
+        validacion=(txtNombre.getText().equals("")?false:true
+                &&(txtPrimerApellido.getText().equals(""))?false:true
+                &&(txtSegundoApellido.getText().equals(""))?false:true
+                &&(txtEmail.getText().equals("")?false:true)
+                );
+        agregarUsuario();
+        
+     
+    
+    }//GEN-LAST:event_jButtonRegisterActionPerformed
+
+  
+    public void agregarUsuario()
+{
+    
+    if (checkBoxAcuerdo.isSelected()&&validacion) {
+        admin.setNombrePersona(txtNombre.getText());
+        admin.setApellido1(txtPrimerApellido.getText());
+        admin.setApellido2(txtSegundoApellido.getText());
+        admin.setEmail(txtEmail.getText());
+        admin.setIp("192.168.0.1");
+        String rol =(String)ComboTipoRoles.getSelectedItem();
+        int tipoRol=(rol.equals("Admin"))?1:2;
+        admin.setRol(tipoRol);
+        
         String año,mes,dia,fechaNacimento;
         año=(String)comboBoxAño.getSelectedItem();
         mes=(String)comboBoxMes.getSelectedItem();
@@ -291,10 +350,15 @@ public class RegistroFormulario extends javax.swing.JFrame {
         fechaNacimento=""+año+"-"+mes+"-"+dia;
         JOptionPane.showMessageDialog(null,fechaNacimento);
         
-        usuario.setFechaNacimiento(Date.valueOf(fechaNacimento));
-        usuario.crearDatos();
-    }//GEN-LAST:event_jButtonRegisterActionPerformed
-
+        admin.setFechaNacimiento(Date.valueOf(fechaNacimento));
+        admin.crearDatos();
+    }
+    else
+    {
+        JOptionPane.showMessageDialog(null, "Los datos no esta correctamente");
+    }
+      
+}
     /**
      * @param args the command line arguments
      */
@@ -331,13 +395,16 @@ public class RegistroFormulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboTipoRoles;
+    private javax.swing.JCheckBox checkBoxAcuerdo;
     private javax.swing.JComboBox<String> comboBoxAño;
     private javax.swing.JComboBox<String> comboBoxDia;
     private javax.swing.JComboBox<String> comboBoxMes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegister;
-    private javax.swing.JCheckBox jCheckBoxIack;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -349,9 +416,11 @@ public class RegistroFormulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextPane txtEmaiil;
+    private javax.swing.JTextPane txtDirrecionIp;
+    private javax.swing.JTextPane txtEmail;
     private javax.swing.JTextPane txtNombre;
     private javax.swing.JTextPane txtPrimerApellido;
     private javax.swing.JTextPane txtSegundoApellido;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Chat {
     private String Nombrechat;
-    ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+    ArrayList<Administrador> listaUsuarios = new ArrayList<Administrador>();
     ArrayList<Mensaje> listaMensajes = new ArrayList<Mensaje>();
     
     boolean tipoChat; //tipo de chat si es unicast o grupo
