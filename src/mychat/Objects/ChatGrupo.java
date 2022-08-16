@@ -70,7 +70,16 @@ public  DefaultTableModel modelo=new DefaultTableModel();
 
     @Override
     public void eliminarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            try {
+          PreparedStatement ps =Conexion.getConexion().prepareStatement("DELETE FROM grupos WHERE nombre_chat=?");
+          ps.setString(1, nombre_chat);
+          ps.execute();
+          JOptionPane.showMessageDialog(null, "Se ha eliminado");
+        } catch (SQLException e) {
+          Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, e);
+
+        }
+
     }
 
     @Override
@@ -81,7 +90,7 @@ public  DefaultTableModel modelo=new DefaultTableModel();
         ps.setString(1,nombre_chat);
         ps.setString(2, grupo);
         ps.execute();
-        
+        JOptionPane.showMessageDialog(null, "Se guardo el grupo");
         } catch (SQLException ex)
         {
             Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, ex);

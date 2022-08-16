@@ -99,8 +99,8 @@ public class Administrador extends Persona {
        
             try{
             
-            PreparedStatement consulta= Conexion.getConexion().prepareStatement("Delete from usuarios where nombreusuarios=?");
-            consulta.setString(1, JOptionPane.showInputDialog("Digite el nombre"));
+            PreparedStatement consulta= Conexion.getConexion().prepareStatement("DELETE FROM usuarios WHERE idusuario=?;");
+            consulta.setInt(1, id);
             consulta.executeUpdate();
             JOptionPane.showMessageDialog(null, "Se ha eliminado usuario");
             
@@ -154,7 +154,7 @@ public class Administrador extends Persona {
         try {
             
         
-        PreparedStatement consulta =Conexion.getConexion().prepareStatement("Select c.idusuario from usuarios as c");
+        PreparedStatement consulta =Conexion.getConexion().prepareStatement("Select c.idusuario from mostrarusuarios as c");
         ResultSet rs= consulta.executeQuery();
           
        
@@ -173,33 +173,57 @@ public class Administrador extends Persona {
     public void modificarDatos() {
       try{
           
-            PreparedStatement ps=Conexion.getConexion().prepareStatement("update usuarios set nombreusuarios=?,"
-                    + "primerApellido=? ,SegundoApellido=? , Email=?,FechaNacimiento=?,contraseña=?,ipv4=?,tiporoles=? where Email=?" );
+             
+            PreparedStatement ps=Conexion.getConexion().prepareStatement("UPDATE usuarios\n" +
+"SET nombreusuarios=?,primerApellido=?,SegundoApellido=?,Email=?,contraseña=?,FechaNacimiento=? ,ipv4=? WHERE idusuario=?");
+           PreparedStatement consutaRoles=Conexion.getConexion().prepareStatement("UPDATE rol_usuario\n" +
+"SET  idrole=?;");
             ps.setString(1, nombrePersona);
             ps.setString(2, apellido1);
             ps.setString(3, apellido2);
             ps.setString(4, email);
-            ps.setDate(5, fechaNacimiento);
-            ps.setString(6, contrasenna);
+            ps.setString(5, contrasenna);
+            ps.setDate(6, fechaNacimiento);
             ps.setString(7, ip);
-            ps.setInt(8, rol);
-            ps.setString(9, email);
-            
-          
-  
+            ps.setInt(8, id);
+            consutaRoles.setInt(1, rol);
             ps.executeUpdate();
-            System.out.println("Guardado");
-                
-            }
-            catch (SQLException exception)
-            {
-            Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, exception);
-        }   
+            consutaRoles.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Se ha modificado el Usuario");
+        }
+         catch (SQLException e) {
+             Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, e);
+        } 
+      
+      
     }
 
     @Override
-    public void actualizarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actualizarDatos() 
+    {
+        try{
+          
+             
+            PreparedStatement ps=Conexion.getConexion().prepareStatement("UPDATE usuarios\n" +
+"SET nombreusuarios=?,primerApellido=?,SegundoApellido=?,Email=?,contraseña=?,FechaNacimiento=? ,ipv4=? WHERE idusuario=?");
+           PreparedStatement consutaRoles=Conexion.getConexion().prepareStatement("UPDATE rol_usuario\n" +
+"SET  idrole=?;");
+            ps.setString(1, nombrePersona);
+            ps.setString(2, apellido1);
+            ps.setString(3, apellido2);
+            ps.setString(4, email);
+            ps.setString(5, contrasenna);
+            ps.setDate(6, fechaNacimiento);
+            ps.setString(7, ip);
+            ps.setInt(8, id);
+            consutaRoles.setInt(1, rol);
+            ps.executeUpdate();
+            consutaRoles.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Se ha actualizado el Usuario");
+        }
+         catch (SQLException e) {
+             Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, e);
+        } 
     }
     @Override
     public void  mostrarDatos()
@@ -252,8 +276,8 @@ public class Administrador extends Persona {
             
             
             
-            PreparedStatement consulta =Conexion.getConexion().prepareStatement("Select * from mostrarUsuarios where email in(?)");
-            consulta.setString(1,email );
+            PreparedStatement consulta =Conexion.getConexion().prepareStatement("Select * from mostrarUsuarios where idusuario in(?)");
+            consulta.setInt(1,id );
             ResultSet rs= consulta.executeQuery();   
             
         while(rs!=null&&rs.next()){    
@@ -266,7 +290,7 @@ public class Administrador extends Persona {
                 this.fechaNacimiento=rs.getDate(7);
                 this.ip=rs.getString(8);
                 this.tipoRol=rs.getString(9);
-            
+                JOptionPane.showMessageDialog(null, "Se encontro el Usuario");
           
         }
    

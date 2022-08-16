@@ -3,17 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mychat.GUI;
+import java.sql.Date;
 import  mychat.Objects.Administrador;
 /**
  *
  * @author Christian
  */
-public class FormularioEliminarUsuario extends javax.swing.JFrame {
-  Administrador admin=new  Administrador();
+public class FormularioActualizarUsuarios extends javax.swing.JFrame {
+    Administrador admin =new Administrador();
     /**
-     * Creates new form FormularioEliminarUsuario
+     * Creates new form FormularioActualizarUsuarios
      */
-    public FormularioEliminarUsuario() {
+    public FormularioActualizarUsuarios() {
         initComponents();
     }
 
@@ -29,33 +30,33 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txt_Buscar = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtDirrecionIp = new javax.swing.JTextPane();
-        ComboTipoRoles = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtNombre = new javax.swing.JTextPane();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtPrimerApellido = new javax.swing.JTextPane();
-        jLabel4 = new javax.swing.JLabel();
+        ComboTipoRoles = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDirrecionIp = new javax.swing.JTextPane();
+        jLabel12 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtSegundoApellido = new javax.swing.JTextPane();
-        jLabel12 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtEmail = new javax.swing.JTextPane();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        comboBoxDia = new javax.swing.JComboBox<>();
-        comboBoxMes = new javax.swing.JComboBox<>();
+        txtContraseña = new javax.swing.JTextField();
         comboBoxAño = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        comboBoxMes = new javax.swing.JComboBox<>();
+        comboBoxDia = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtEliminar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,32 +69,14 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setText("Dirrecion ip");
-
-        txtDirrecionIp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtDirrecionIp.setForeground(new java.awt.Color(153, 204, 255));
-        txtDirrecionIp.setToolTipText("");
-        txtDirrecionIp.setEnabled(false);
-        jScrollPane3.setViewportView(txtDirrecionIp);
-
-        ComboTipoRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Normal" }));
-        ComboTipoRoles.setEnabled(false);
-
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Tipo rol");
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Nombre:");
 
         txtNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtNombre.setForeground(new java.awt.Color(153, 204, 255));
         txtNombre.setToolTipText("");
-        txtNombre.setEnabled(false);
         jScrollPane1.setViewportView(txtNombre);
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Nombre:");
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -103,75 +86,82 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
         txtPrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtPrimerApellido.setForeground(new java.awt.Color(153, 204, 255));
         txtPrimerApellido.setToolTipText("");
-        txtPrimerApellido.setEnabled(false);
         jScrollPane2.setViewportView(txtPrimerApellido);
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Segundo Apellido:");
+        ComboTipoRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Normal" }));
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Tipo rol");
+
+        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("Dirrecion ip");
+
+        txtDirrecionIp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtDirrecionIp.setForeground(new java.awt.Color(153, 204, 255));
+        txtDirrecionIp.setToolTipText("");
+        jScrollPane3.setViewportView(txtDirrecionIp);
+
+        jLabel12.setText("Contraseña");
 
         txtSegundoApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtSegundoApellido.setForeground(new java.awt.Color(153, 204, 255));
         txtSegundoApellido.setToolTipText("");
-        txtSegundoApellido.setEnabled(false);
         jScrollPane5.setViewportView(txtSegundoApellido);
 
-        jLabel12.setText("Contraseña");
-
-        txtContraseña.setEnabled(false);
-
-        txtEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtEmail.setForeground(new java.awt.Color(153, 204, 255));
-        txtEmail.setToolTipText("");
-        txtEmail.setEnabled(false);
-        jScrollPane4.setViewportView(txtEmail);
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Segundo Apellido:");
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Email:");
         jLabel5.setToolTipText("");
 
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Fecha de nacimiento");
-
-        comboBoxDia.setEditable(true);
-        comboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        comboBoxDia.setEnabled(false);
-        comboBoxDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxDiaActionPerformed(evt);
-            }
-        });
-
-        comboBoxMes.setEditable(true);
-        comboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        comboBoxMes.setEnabled(false);
-        comboBoxMes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxMesActionPerformed(evt);
-            }
-        });
+        txtEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtEmail.setForeground(new java.awt.Color(153, 204, 255));
+        txtEmail.setToolTipText("");
+        jScrollPane4.setViewportView(txtEmail);
 
         comboBoxAño.setEditable(true);
         comboBoxAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920", "1919", "1918", "1917", "1916", "1915", "1914", "1913", "1912", "1911", "1910" }));
-        comboBoxAño.setEnabled(false);
         comboBoxAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxAñoActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Año");
+        comboBoxMes.setEditable(true);
+        comboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        comboBoxMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxMesActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setText("Mes");
+        comboBoxDia.setEditable(true);
+        comboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        comboBoxDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxDiaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Fecha de nacimiento");
 
         jLabel9.setText("Dia");
 
-        txtEliminar.setText("Eliminar");
-        txtEliminar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setText("Mes");
+
+        jLabel8.setText("Año");
+
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEliminarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -180,12 +170,12 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(527, Short.MAX_VALUE)
-                .addComponent(txtEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addContainerGap(542, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(57, 57, 57)
+                    .addGap(65, 65, 65)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel6)
@@ -237,17 +227,17 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(129, 129, 129)))))
-                    .addContainerGap(58, Short.MAX_VALUE)))
+                    .addContainerGap(79, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(412, Short.MAX_VALUE)
-                .addComponent(txtEliminar)
-                .addGap(25, 25, 25))
+                .addContainerGap(410, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(59, 59, 59)
+                    .addGap(57, 57, 57)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
                         .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +279,7 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
                         .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6))
-                    .addContainerGap(93, Short.MAX_VALUE)))
+                    .addContainerGap(95, Short.MAX_VALUE)))
         );
 
         pack();
@@ -299,32 +289,45 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
         admin.setId(Integer.parseInt(txt_Buscar.getText()));
         admin.BuscarInventario();
         txtNombre.setText(admin.getNombrePersona());
-        txtPrimerApellido.setText(admin.getApellido1());
-        txtSegundoApellido.setText(admin.getApellido2());
-        txtDirrecionIp.setText(admin.getIp());
-        txtEmail.setText(admin.getEmail());
-        txtContraseña.setText(admin.getContrasenna());
+        
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void comboBoxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxDiaActionPerformed
-
-    private void comboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxMesActionPerformed
 
     private void comboBoxAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxAñoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxAñoActionPerformed
 
-    private void txtEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarActionPerformed
-      
-       admin.setId(Integer.parseInt(txt_Buscar.getText()));
-       admin.eliminarDatos();
-    }//GEN-LAST:event_txtEliminarActionPerformed
+    private void comboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxMesActionPerformed
 
+    private void comboBoxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxDiaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        actualizarUsuario();
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void actualizarUsuario()
+    {   admin.setId(Integer.parseInt(txt_Buscar.getText()));
+          admin.setNombrePersona(txtNombre.getText());
+        admin.setApellido1(txtPrimerApellido.getText());
+        admin.setApellido2(txtSegundoApellido.getText());
+        admin.setEmail(txtEmail.getText());
+        admin.setContrasenna(txtContraseña.getText());
+        admin.setIp(txtDirrecionIp.getText());
+        String rol =(String)ComboTipoRoles.getSelectedItem();
+        int tipoRol=(rol.equals("Admin"))?1:2;
+        admin.setRol(tipoRol);
+        
+        String año,mes,dia,fechaNacimento;
+        año=(String)comboBoxAño.getSelectedItem();
+        mes=(String)comboBoxMes.getSelectedItem();
+        dia=(String)comboBoxDia.getSelectedItem();
+        fechaNacimento=""+año+"-"+mes+"-"+dia;
+        admin.setFechaNacimiento(Date.valueOf(fechaNacimento));
+        admin.actualizarDatos();
+    }
     /**
      * @param args the command line arguments
      */
@@ -342,20 +345,20 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioActualizarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioActualizarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioActualizarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioActualizarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioEliminarUsuario().setVisible(true);
+                new FormularioActualizarUsuarios().setVisible(true);
             }
         });
     }
@@ -365,6 +368,7 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxAño;
     private javax.swing.JComboBox<String> comboBoxDia;
     private javax.swing.JComboBox<String> comboBoxMes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -385,7 +389,6 @@ public class FormularioEliminarUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextPane txtDirrecionIp;
-    private javax.swing.JButton txtEliminar;
     private javax.swing.JTextPane txtEmail;
     private javax.swing.JTextPane txtNombre;
     private javax.swing.JTextPane txtPrimerApellido;
