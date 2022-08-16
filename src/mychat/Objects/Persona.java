@@ -18,6 +18,23 @@ abstract class Persona {
     String apellido2;
     String email;
     Date fechaNacimiento;
+    String contranna;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getContranna() {
+        return contranna;
+    }
+
+    public void setContranna(String contranna) {
+        this.contranna = contranna;
+    }
     
 
     public String getNombrePersona() {
@@ -59,13 +76,12 @@ abstract class Persona {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
-  
     
-
+    
  public abstract void eliminarDatos();
  public abstract void crearDatos();
  public abstract void modificarDatos();
  public abstract void actualizarDatos();
- public abstract void mostrarDatos();
+ public abstract void mostrarDatos();    
+
 }

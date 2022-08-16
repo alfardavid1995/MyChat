@@ -3,21 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mychat.GUI;
-import mychat.Objects.Administrador;
-import mychat.Objects.Direcciónred;
 import java.sql.Date;
-import javax.swing.JOptionPane;
+import mychat.Objects.Administrador;
 /**
  *
  * @author Christian
  */
-public class RegistroFormulario extends javax.swing.JFrame {
-    Administrador  admin = new Administrador();
-    boolean validacion;
+public class FormlariomodificarUsuario extends javax.swing.JFrame {
+
     /**
-     * Creates new form RegistroFormulario
+     * Creates new form FormlariomodificarUsuario
      */
-    public RegistroFormulario() {
+    
+    Administrador admin =new Administrador();
+    public FormlariomodificarUsuario() {
         initComponents();
     }
 
@@ -32,44 +31,67 @@ public class RegistroFormulario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButtonRegister = new javax.swing.JButton();
-        comboBoxDia = new javax.swing.JComboBox<>();
-        comboBoxMes = new javax.swing.JComboBox<>();
-        comboBoxAño = new javax.swing.JComboBox<>();
-        checkBoxAcuerdo = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtNombre = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtPrimerApellido = new javax.swing.JTextPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtEmail = new javax.swing.JTextPane();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txtSegundoApellido = new javax.swing.JTextPane();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        ComboTipoRoles = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtDirrecionIp = new javax.swing.JTextPane();
+        ComboTipoRoles = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtPrimerApellido = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtSegundoApellido = new javax.swing.JTextPane();
         jLabel12 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtEmail = new javax.swing.JTextPane();
+        jLabel5 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        comboBoxDia = new javax.swing.JComboBox<>();
+        comboBoxMes = new javax.swing.JComboBox<>();
+        comboBoxAño = new javax.swing.JComboBox<>();
+        jButtonRegister = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txt_Buscar = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(5, 225, 19));
-
-        jPanel1.setBackground(new java.awt.Color(5, 225, 193));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Nombre:");
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Tipo rol");
+
+        txtNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtNombre.setForeground(new java.awt.Color(153, 204, 255));
+        txtNombre.setToolTipText("");
+        jScrollPane1.setViewportView(txtNombre);
+
+        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("Dirrecion ip");
+
+        txtDirrecionIp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtDirrecionIp.setForeground(new java.awt.Color(153, 204, 255));
+        txtDirrecionIp.setToolTipText("");
+        jScrollPane3.setViewportView(txtDirrecionIp);
+
+        ComboTipoRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Normal" }));
+
+        txtPrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtPrimerApellido.setForeground(new java.awt.Color(153, 204, 255));
+        txtPrimerApellido.setToolTipText("");
+        jScrollPane2.setViewportView(txtPrimerApellido);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -80,19 +102,32 @@ public class RegistroFormulario extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Segundo Apellido:");
 
+        txtSegundoApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtSegundoApellido.setForeground(new java.awt.Color(153, 204, 255));
+        txtSegundoApellido.setToolTipText("");
+        jScrollPane5.setViewportView(txtSegundoApellido);
+
+        jLabel12.setText("Contraseña");
+
+        txtEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtEmail.setForeground(new java.awt.Color(153, 204, 255));
+        txtEmail.setToolTipText("");
+        jScrollPane4.setViewportView(txtEmail);
+
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Email:");
         jLabel5.setToolTipText("");
 
-        jButtonRegister.setBackground(new java.awt.Color(0, 51, 255));
-        jButtonRegister.setText("Registrar");
-        jButtonRegister.setToolTipText("");
-        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegisterActionPerformed(evt);
-            }
-        });
+        jLabel8.setText("Año");
+
+        jLabel7.setText("Mes");
+
+        jLabel9.setText("Dia");
+
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Fecha de nacimiento");
 
         comboBoxDia.setEditable(true);
         comboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -118,140 +153,104 @@ public class RegistroFormulario extends javax.swing.JFrame {
             }
         });
 
-        checkBoxAcuerdo.setForeground(new java.awt.Color(51, 51, 255));
-        checkBoxAcuerdo.setText("Estoy de acuerdo con los terminos de uso");
-        checkBoxAcuerdo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegister.setBackground(new java.awt.Color(0, 51, 255));
+        jButtonRegister.setText("Modificar");
+        jButtonRegister.setToolTipText("");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxAcuerdoActionPerformed(evt);
+                jButtonRegisterActionPerformed(evt);
             }
         });
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Registro Usuario");
-
-        txtNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtNombre.setForeground(new java.awt.Color(153, 204, 255));
-        txtNombre.setToolTipText("");
-        jScrollPane1.setViewportView(txtNombre);
-
-        txtPrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtPrimerApellido.setForeground(new java.awt.Color(153, 204, 255));
-        txtPrimerApellido.setToolTipText("");
-        jScrollPane2.setViewportView(txtPrimerApellido);
-
-        txtEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtEmail.setForeground(new java.awt.Color(153, 204, 255));
-        txtEmail.setToolTipText("");
-        jScrollPane4.setViewportView(txtEmail);
-
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Fecha de nacimiento");
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setText("Atras");
 
-        txtSegundoApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtSegundoApellido.setForeground(new java.awt.Color(153, 204, 255));
-        txtSegundoApellido.setToolTipText("");
-        jScrollPane5.setViewportView(txtSegundoApellido);
+        jLabel1.setText("Buscar por Correo electronico");
 
-        jLabel7.setText("Mes");
-
-        jLabel8.setText("Año");
-
-        jLabel9.setText("Dia");
-
-        ComboTipoRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Normal" }));
-
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Tipo rol");
-
-        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setText("Dirrecion ip");
-
-        txtDirrecionIp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtDirrecionIp.setForeground(new java.awt.Color(153, 204, 255));
-        txtDirrecionIp.setToolTipText("");
-        jScrollPane3.setViewportView(txtDirrecionIp);
-
-        jLabel12.setText("Contraseña");
+        jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(100, 100, 100)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboBoxDia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel9)
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel7)
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(177, 177, 177)
-                                .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(checkBoxAcuerdo)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboBoxDia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(48, 48, 48)
+                                .addComponent(txt_Buscar))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1)
                                     .addComponent(jScrollPane2)
                                     .addComponent(jScrollPane4)
-                                    .addComponent(jScrollPane5))
-                                .addGap(66, 66, 66)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(ComboTipoRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtContraseña)
-                                        .addGap(92, 92, 92))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jLabel9)
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel7)
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(46, 46, 46)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(ComboTipoRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(45, 45, 45)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(129, 129, 129)))))
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
-                .addGap(78, 78, 78)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
@@ -284,17 +283,11 @@ public class RegistroFormulario extends javax.swing.JFrame {
                     .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(44, 44, 44)
-                .addComponent(checkBoxAcuerdo)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(31, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
+                .addGap(96, 96, 96)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,40 +304,41 @@ public class RegistroFormulario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboBoxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxDiaActionPerformed
-
-    private void comboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxMesActionPerformed
+    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
+modificarUsuario();
+       
+    }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     private void comboBoxAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxAñoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxAñoActionPerformed
 
-    private void checkBoxAcuerdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxAcuerdoActionPerformed
+    private void comboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkBoxAcuerdoActionPerformed
+    }//GEN-LAST:event_comboBoxMesActionPerformed
 
-    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-    
-        validacion=(txtNombre.getText().equals("")?false:true
-                &&(txtPrimerApellido.getText().equals(""))?false:true
-                &&(txtSegundoApellido.getText().equals(""))?false:true
-                &&(txtEmail.getText().equals("")?false:true)
-                );
-        agregarUsuario();
-        
-     
-    
-    }//GEN-LAST:event_jButtonRegisterActionPerformed
+    private void comboBoxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxDiaActionPerformed
 
-  
-    public void agregarUsuario()
-{
-    
-    if (checkBoxAcuerdo.isSelected()&&validacion) {
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       admin.setEmail(txt_Buscar.getText());
+       admin.BuscarInventario(); 
+       txtNombre.setText(admin.getNombrePersona());
+       txtPrimerApellido.setText(admin.getApellido1());
+       txtSegundoApellido.setText(admin.getApellido2());
+       txtDirrecionIp.setText(admin.getIp());
+       txtEmail.setText(admin.getEmail());
+       txtContraseña.setText(admin.getContrasenna());
+       
+       
+       
+       
+   
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void modificarUsuario()
+    {
         admin.setNombrePersona(txtNombre.getText());
         admin.setApellido1(txtPrimerApellido.getText());
         admin.setApellido2(txtSegundoApellido.getText());
@@ -360,17 +354,9 @@ public class RegistroFormulario extends javax.swing.JFrame {
         mes=(String)comboBoxMes.getSelectedItem();
         dia=(String)comboBoxDia.getSelectedItem();
         fechaNacimento=""+año+"-"+mes+"-"+dia;
-        JOptionPane.showMessageDialog(null,fechaNacimento);
-        
         admin.setFechaNacimiento(Date.valueOf(fechaNacimento));
-        admin.crearDatos();
+        admin.modificarDatos();
     }
-    else
-    {
-        JOptionPane.showMessageDialog(null, "Los datos no esta correctamente");
-    }
-      
-}
     /**
      * @param args the command line arguments
      */
@@ -388,31 +374,31 @@ public class RegistroFormulario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormlariomodificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormlariomodificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormlariomodificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormlariomodificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistroFormulario().setVisible(true);
+                new FormlariomodificarUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboTipoRoles;
-    private javax.swing.JCheckBox checkBoxAcuerdo;
     private javax.swing.JComboBox<String> comboBoxAño;
     private javax.swing.JComboBox<String> comboBoxDia;
     private javax.swing.JComboBox<String> comboBoxMes;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -438,5 +424,6 @@ public class RegistroFormulario extends javax.swing.JFrame {
     private javax.swing.JTextPane txtNombre;
     private javax.swing.JTextPane txtPrimerApellido;
     private javax.swing.JTextPane txtSegundoApellido;
+    private javax.swing.JTextField txt_Buscar;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,12 +30,12 @@ public class Administrador extends Persona {
     final String SELECT_TODOS_LOS_USUARIOS="Select * from mostrarUsuarios";
     ArrayList listaUsuarios=new ArrayList<>();
     ArrayList<Administrador> listaAmigos = new ArrayList<Administrador>();
-    ArrayList<Chat> listaChat = new ArrayList<Chat>(); 
     Direcciónred direcciónred =new Direcciónred();
     private String ip ;
     private String tipored; 
     private String tipoRol;//este espara imprimir en la tabla
     private int rol;//esta para añadir registro
+    private String contrasenna;
     public  DefaultTableModel modelo=new DefaultTableModel();
     
     public Administrador() {
@@ -50,13 +50,7 @@ public class Administrador extends Persona {
         this.listaAmigos = listaAmigos;
     }
 
-    public ArrayList<Chat> getListaChat() {
-        return listaChat;
-    }
-
-    public void setListaChat(ArrayList<Chat> listaChat) {
-        this.listaChat = listaChat;
-    }
+  
 
     public String getTipored() {
         return tipored;
@@ -88,6 +82,14 @@ public class Administrador extends Persona {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public String getContrasenna() {
+        return contrasenna;
+    }
+
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
     }
     
 
@@ -126,14 +128,15 @@ public class Administrador extends Persona {
 //            this.email=JOptionPane.showInputDialog("Digite el email");
             int ipsiguien=contarIdSiguiente();
             JOptionPane.showMessageDialog(null, ipsiguien);
-            PreparedStatement ps=Conexion.getConexion().prepareStatement("INSERT INTO usuarios(nombreusuarios,primerApellido,SegundoApellido,Email,FechaNacimiento,ipv4)VALUES (?,?,?,?,?,?)");
+            PreparedStatement ps=Conexion.getConexion().prepareStatement("INSERT INTO usuarios(nombreusuarios,primerApellido,SegundoApellido,Email,contraseña,FechaNacimiento,ipv4)VALUES (?,?,?,?,?,?,?)");
             PreparedStatement consutaRoles=Conexion.getConexion().prepareStatement("INSERT INTO rol_usuario values(?,?)");
             ps.setString(1, nombrePersona);
             ps.setString(2, apellido1);
             ps.setString(3, apellido2);
             ps.setString(4, email);
-            ps.setDate(5, fechaNacimiento);
-            ps.setString(6, ip);
+            ps.setString(5, contrasenna);
+            ps.setDate(6, fechaNacimiento);
+            ps.setString(7, ip);
             consutaRoles.setInt(1,ipsiguien);
             consutaRoles.setInt(2, rol);
             ps.execute();
@@ -169,22 +172,21 @@ public class Administrador extends Persona {
     @Override
     public void modificarDatos() {
       try{
-            DateFormat dateFormat =  new SimpleDateFormat("yyyy-MM-dd");
-            this.nombrePersona=JOptionPane.showInputDialog("Digite el nombre");
-            this.apellido1=JOptionPane.showInputDialog("Digite el primer apellido");
-            this.apellido2=JOptionPane.showInputDialog("Digite el segundo apellido");
-            this.fechaNacimiento=Date.valueOf(JOptionPane.showInputDialog("Digite la fecha de nacimiento del estudiante"));
-            this.email=JOptionPane.showInputDialog("Digite el email");
           
             PreparedStatement ps=Conexion.getConexion().prepareStatement("update usuarios set nombreusuarios=?,"
-                    + "primerApellido=? ,SegundoApellido=? , Email=?,FechaNacimiento=? where idusuario=2" );
+                    + "primerApellido=? ,SegundoApellido=? , Email=?,FechaNacimiento=?,contraseña=?,ipv4=?,tiporoles=? where Email=?" );
             ps.setString(1, nombrePersona);
             ps.setString(2, apellido1);
             ps.setString(3, apellido2);
             ps.setString(4, email);
             ps.setDate(5, fechaNacimiento);
+            ps.setString(6, contrasenna);
+            ps.setString(7, ip);
+            ps.setInt(8, rol);
+            ps.setString(9, email);
+            
           
-       
+  
             ps.executeUpdate();
             System.out.println("Guardado");
                 
@@ -213,6 +215,7 @@ public class Administrador extends Persona {
                 modelo.addColumn("Primer apellido");
                 modelo.addColumn("Segundo Apellido");
                 modelo.addColumn("Email");
+                modelo.addColumn("Contraseña");
                 modelo.addColumn("Fecha Nacimiento");
                 modelo.addColumn("Direccion ip");
                 modelo.addColumn("Roles");    
@@ -223,17 +226,19 @@ public class Administrador extends Persona {
                 this.apellido1=rs.getString(3);
                 this.apellido2=rs.getString(4);
                 this.email=rs.getString(5);
-                this.fechaNacimiento=rs.getDate(6);
-                this.direcciónred.setIpv4(rs.getString(7));
-                this.tipoRol=rs.getString(8);
+                this.contrasenna=rs.getString(6);
+                this.fechaNacimiento=rs.getDate(7);
+                this.direcciónred.setIpv4(rs.getString(8));
+                this.tipoRol=rs.getString(9);
                 listaUsuarios.add(0,id);
                 listaUsuarios.add(1,nombrePersona);
                 listaUsuarios.add(2,apellido1);
                 listaUsuarios.add(3,apellido2);
                 listaUsuarios.add(4,email);
-                listaUsuarios.add(5,fechaNacimiento);
-                listaUsuarios.add(6,direcciónred.getIpv4());
-                listaUsuarios.add(7,tipoRol);
+                listaUsuarios.add(5,contrasenna);
+                listaUsuarios.add(6,fechaNacimiento);
+                listaUsuarios.add(7,direcciónred.getIpv4());
+                listaUsuarios.add(8,tipoRol);
                 modelo.addRow(listaUsuarios.toArray());
                 
             }
@@ -241,6 +246,36 @@ public class Administrador extends Persona {
              Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, e);
         }        // TODO add your handling code here:
     }
- 
+ public  void BuscarInventario()
+    {
+        try {
+            
+            
+            
+            PreparedStatement consulta =Conexion.getConexion().prepareStatement("Select * from mostrarUsuarios where email in(?)");
+            consulta.setString(1,email );
+            ResultSet rs= consulta.executeQuery();   
+            
+        while(rs!=null&&rs.next()){    
+                this.id=rs.getInt(1);
+                this.nombrePersona=rs.getString(2);
+                this.apellido1=rs.getString(3);
+                this.apellido2=rs.getString(4);
+                this.email=rs.getString(5);
+                this.contrasenna=rs.getString(6);
+                this.fechaNacimiento=rs.getDate(7);
+                this.ip=rs.getString(8);
+                this.tipoRol=rs.getString(9);
+            
+          
+        }
+   
+            
+            }
+            catch (SQLException exception)
+            {
+            Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE,null, exception);
+        }   
+    } 
     
 }
