@@ -630,7 +630,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Buscar por Correo electronico"/>
+            <Property name="text" type="java.lang.String" value="Buscar por id"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_Buscar">

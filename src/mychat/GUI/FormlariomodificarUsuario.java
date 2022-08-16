@@ -165,7 +165,7 @@ public class FormlariomodificarUsuario extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setText("Atras");
 
-        jLabel1.setText("Buscar por Correo electronico");
+        jLabel1.setText("Buscar por id");
 
         jButton2.setText("Buscar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -322,7 +322,7 @@ modificarUsuario();
     }//GEN-LAST:event_comboBoxDiaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       admin.setEmail(txt_Buscar.getText());
+       admin.setId(Integer.parseInt(txt_Buscar.getText()));
        admin.BuscarInventario(); 
        txtNombre.setText(admin.getNombrePersona());
        txtPrimerApellido.setText(admin.getApellido1());
